@@ -1,0 +1,59 @@
+:root {
+    --bg-primary: #f4f7fe;
+    --bg-card: #ffffff;
+    --text-main: #1b2559;
+    --purple-primary: #4318ff;
+    --purple-hover: #3311cc;
+    --green-success: #05cd99;
+    --red-danger: #ee5d50;
+    --border-color: #e0e5f2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background-color: var(--bg-primary); color: var(--text-main); min-height: 100vh; display: flex; }
+.dashboard-container { display: flex; width: 100%; }
+
+.sidebar { width: 260px; background-color: var(--bg-card); border-right: 1px solid var(--border-color); padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+.logo { display: flex; align-items: center; gap: 0.75rem; color: var(--purple-primary); }
+.sidebar nav { display: flex; flex-direction: column; gap: 0.5rem; }
+.sidebar nav a { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: #8f9bba; padding: 0.8rem 1rem; border-radius: 10px; font-weight: 600; }
+.sidebar nav a.active { background-color: #f4f7fe; color: var(--purple-primary); }
+
+.main-content { flex: 1; padding: 2rem; overflow-y: auto; }
+header { margin-bottom: 2rem; }
+header h1 { font-size: 2.2rem; font-weight: 700; }
+header p { color: #707eae; margin-top: 0.25rem; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.card { background-color: var(--bg-card); border-radius: 20px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0px 4px 20px rgba(112, 144, 176, 0.08); }
+.card-info p { color: #707eae; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.card-info h2 { font-size: 1.8rem; font-weight: 700; }
+.card-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.25rem; }
+.balance-card .card-icon { background: #e9edf7; color: var(--purple-primary); }
+.income-card .card-icon { background: #e6faf5; color: var(--green-success); }
+.expense-card .card-icon { background: #fdeeed; color: var(--red-danger); }
+
+.dashboard-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+@media (max-width: 900px) { .dashboard-body { grid-template-columns: 1fr; } .dashboard-container { flex-direction: column; } .sidebar { width: 100%; } }
+
+.box { background-color: var(--bg-card); border-radius: 20px; padding: 1.75rem; box-shadow: 0px 4px 20px rgba(112, 144, 176, 0.08); }
+.box h3 { font-size: 1.2rem; margin-bottom: 1.25rem; }
+
+.input-group { margin-bottom: 1.25rem; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+.input-group input, .input-group select { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 12px; background-color: #f8fafc; font-size: 0.95rem; outline: none; }
+.btn-submit { width: 100%; background-color: var(--purple-primary); color: white; border: none; padding: 0.85rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+.btn-submit:hover { background-color: var(--purple-hover); }
+
+.chart-container { position: relative; height: 250px; width: 100%; display: flex; justify-content: center; }
+.history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+.filters .filter-btn { background: none; border: 1px solid var(--border-color); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; margin-left: 0.25rem; }
+.filters .filter-btn.active { background-color: var(--purple-primary); color: white; }
+
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 1rem; border-bottom: 1px solid var(--border-color); }
+th { color: #707eae; font-size: 0.85rem; text-transform: uppercase; }
+.amt-income { color: var(--green-success); font-weight: 600; }
+.amt-expense { color: var(--red-danger); font-weight: 600; }
+.btn-delete { background: none; border: none; color: #a3aed0; cursor: pointer; font-size: 1.1rem; }
+.btn-delete:hover { color: var(--red-danger); }

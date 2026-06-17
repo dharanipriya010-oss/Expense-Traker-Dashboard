@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Fullstack Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>FinTrack</h2>
+            </div>
+            <nav>
+    <a href="index.html" class="active">
+        <i class="fa-solid fa-house"></i> Dashboard
+    </a>
+
+    <a href="analytics.html">
+        <i class="fa-solid fa-chart-pie"></i> Analytics
+    </a>
+
+    <a href="settings.html">
+        <i class="fa-solid fa-gear"></i> Settings
+    </a>
+   
+</nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="welcome-text">
+                    <h1>Dashboard</h1>
+                    <p>Live Database Connection: SQLite Active Sync</p>
+                </div>
+            </header>
+
+            <section class="metrics-grid">
+                <div class="card balance-card">
+                    <div class="card-info"><p>Total Balance</p><h2 id="total-balance">$0.00</h2></div>
+                    <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                </div>
+                <div class="card income-card">
+                    <div class="card-info"><p>Total Income</p><h2 id="total-income">$0.00</h2></div>
+                    <div class="card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                </div>
+                <div class="card expense-card">
+                    <div class="card-info"><p>Total Expenses</p><h2 id="total-expense">$0.00</h2></div>
+                    <div class="card-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                </div>
+            </section>
+
+            <div class="dashboard-body">
+                <section class="form-section box">
+                    <h3>Add New Transaction</h3>
+                    <form id="transaction-form">
+                        <div class="input-group">
+                            <label for="text">Description</label>
+                            <input type="text" id="text" placeholder="e.g., Grocery Shopping" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Amount ($)</label>
+                            <input type="number" step="0.01" id="amount" placeholder="e.g., 1200 or -45.00" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="category">Category</label>
+                            <select id="category" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Food">Food & Dining</option>
+                                <option value="Rent">Rent/Housing</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Save Transaction</button>
+                    </form>
+                </section>
+
+                <section class="chart-section box">
+                    <h3>Expense Breakdown</h3>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <section class="history-section box">
+                <div class="history-header">
+                    <h3>Recent Transactions</h3>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="income">Income</button>
+                        <button class="filter-btn" data-filter="expense">Expenses</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-list"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
