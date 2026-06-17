@@ -12,4 +12,4 @@ A full-stack web application designed to help users seamlessly log, track, and a
    Frontend: React.js, HTML5, CSS3, JavaScript
    Backend: Node.js, Express.js
    Database: MongoDB
-   API Testing: Postman
+   API Testing
